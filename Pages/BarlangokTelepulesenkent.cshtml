@@ -1,0 +1,51 @@
+﻿@page
+@model Barlangok.Pages.BarlangokTelepulesenkentModel
+
+@{
+    ViewData["Title"] = "Barlangok Településenként";
+}
+
+<h2>Barlangok település szerint</h2>
+
+<form method="get" class="form-inline mb-3">
+    <label asp-for="KijeloltTelepules" class="mr-2">Település:</label>
+    <select asp-for="KijeloltTelepules"
+            asp-items="Model.Telepulesek"
+            class="form-control mr-2">
+        <option value="">-- Válassz települést --</option>
+    </select>
+    <input type="submit" value="Szűrés" class="btn btn-primary" />
+</form>
+
+@if (Model.Barlangok != null && Model.Barlangok.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Hossz</th>
+                <th>Kiterjedés</th>
+                <th>Mélység</th>
+                <th>Magasság</th>
+                <th>Település</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Barlangok)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nev)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Hossz)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Kiterjedes)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Melyseg)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Magassag)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telepules)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(Model.KijeloltTelepules))
+{
+    <p class="text-warning">Nincs barlang a kiválasztott településen.</p>
+}
