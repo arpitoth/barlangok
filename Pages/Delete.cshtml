@@ -1,0 +1,58 @@
+﻿@page
+@model Barlangok.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BarlangModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Nev)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Nev)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Hossz)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Hossz)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Kiterjedes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Kiterjedes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Melyseg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Melyseg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Magassag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Magassag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BarlangModel.Telepules)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BarlangModel.Telepules)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="BarlangModel.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
